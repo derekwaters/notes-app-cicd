@@ -1,0 +1,12 @@
+connector:
+  name: harness_k8sconnector
+  identifier: harnessk8sconnector
+  description: ""
+  orgIdentifier: default
+  projectIdentifier: notesappexample
+  type: K8sCluster
+  spec:
+    credential:
+      type: InheritFromDelegate
+    delegateSelectors:
+      - kubernetes-delegate

@@ -1,0 +1,25 @@
+service:
+    name: harness_notes_test
+    identifier: harnessnotestest
+    projectIdentifier: notesappexample
+    serviceDefinition:
+        type: Kubernetes
+        spec:
+            manifests:
+                - manifest:
+                    identifier: notes
+                    type: K8sManifest
+                    spec:
+                      store:
+                        type: Github
+                        spec:
+                            connectorRef: harnessgitconnector
+                            gitFetchType: Branch
+                            paths:
+                                - deployment.yaml
+                                - service.yaml
+                            repoName: notes-app-cicd
+                            branch: main
+                        skipResourceVersioning: false
+                        enableDeclarativeRollback: false
+    gitOpsEnabled: false
